@@ -32,9 +32,18 @@ autoscaler_types = {
   "Prod-Autoscaler-Jenkins-CPU" = {
     image_family                             = "jenkins-stock-agent"
     agent_instance_type                      = "c4.4xlarge"
-    labels                                   = "CPU"
+    labels                                   = "CPU CPU-SMALL CPU-DOCKER"
     min_size                                 = 6
-    max_size                                 = 90
+    max_size                                 = 6
+    on_demand_percentage_above_base_capacity = 100
+    on_demand_base_capacity                  = 0
+  }
+  "Prod-Autoscaler-Jenkins-CPU-DOCKER" = {
+    image_family                             = "jenkins-stock-agent"
+    agent_instance_type                      = "c4.4xlarge"
+    labels                                   = "CPU-DOCKER"
+    min_size                                 = 0
+    max_size                                 = 45
     on_demand_percentage_above_base_capacity = 100
     on_demand_base_capacity                  = 0
   }
@@ -56,10 +65,19 @@ autoscaler_types = {
     on_demand_percentage_above_base_capacity = 100
     on_demand_base_capacity                  = 0
   }
+  "Prod-Autoscaler-Jenkins-GPU-DOCKER" = {
+    image_family                             = "jenkins-gpu-agent"
+    agent_instance_type                      = "g4dn.xlarge"
+    labels                                   = "GPU-DOCKER"
+    min_size                                 = 0
+    max_size                                 = 45
+    on_demand_percentage_above_base_capacity = 100
+    on_demand_base_capacity                  = 0
+  }
   "Prod-Autoscaler-Jenkins-GPU-4x" = {
     image_family                             = "jenkins-gpu-agent"
     agent_instance_type                      = "g4dn.4xlarge"
-    labels                                   = "GPU"
+    labels                                   = "GPU GPU-DOCKER"
     min_size                                 = 2
     max_size                                 = 2
     on_demand_percentage_above_base_capacity = 100
@@ -68,9 +86,18 @@ autoscaler_types = {
   "Prod-Autoscaler-Jenkins-ARM" = {
     image_family                             = "jenkins-stock-agent-arm"
     agent_instance_type                      = "m6g.4xlarge"
-    labels                                   = "ARM"
+    labels                                   = "ARM ARM-SMALL ARM-DOCKER"
     min_size                                 = 2
-    max_size                                 = 90
+    max_size                                 = 2
+    on_demand_percentage_above_base_capacity = 100
+    on_demand_base_capacity                  = 0
+  }
+  "Prod-Autoscaler-Jenkins-ARM-DOCKER" = {
+    image_family                             = "jenkins-stock-agent-arm"
+    agent_instance_type                      = "m6g.4xlarge"
+    labels                                   = "ARM-DOCKER"
+    min_size                                 = 0
+    max_size                                 = 45
     on_demand_percentage_above_base_capacity = 100
     on_demand_base_capacity                  = 0
   }
