@@ -38,3 +38,8 @@ variable "internal_load_balancer" {
   type    = bool
   default = false
 }
+
+variable "persistent_storage_uuid" {
+  type        = string
+  description = "The UUID of the filesystem where persistent job data is stored"
+}

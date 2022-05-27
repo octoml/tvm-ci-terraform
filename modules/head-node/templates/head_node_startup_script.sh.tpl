@@ -10,14 +10,8 @@ chown -R 1000:1000 /var/jenkins
 
 # Create mount point
 cat << EOF | sudo tee -a /etc/fstab
-/dev/nvme1n1 /var/jenkins/persistent_data xfs discard,defaults,nofail 0 2
+${uuid} /var/jenkins/persistent_data xfs discard,defaults,nofail 0 2
 EOF
 
-# Format disk
-if [ "$(lsblk -n -o FSTYPE /dev/nvme1n1)" == "" ]; then
-    mkfs.xfs /dev/nvme1n1
-else
-    echo "Disk already formatted"
-fi
 mount /var/jenkins/persistent_data
 chown -R 1000:1000 /var/jenkins
