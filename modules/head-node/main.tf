@@ -1,5 +1,6 @@
 locals {
   head_node_startup_script = templatefile("${path.module}/templates/head_node_startup_script.sh.tpl", {
+    uuid = var.persistent_storage_uuid
   })
 }
 
@@ -75,6 +76,9 @@ data "aws_subnet" "head_node" {
 resource "aws_ebs_volume" "jobs_storage" {
   availability_zone = data.aws_subnet.head_node.availability_zone
   size              = var.ebs_vol_size
+  lifecycle {
+    prevent_destroy = true
+  }
 
   tags = {
     Name = "${title(var.environment)}-Jenkins-Persistent-Storage"

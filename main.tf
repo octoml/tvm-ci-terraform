@@ -40,4 +40,5 @@ module "head_node" {
   domain_name               = var.domain_name
   subject_alternative_names = var.subject_alternative_names
   internal_load_balancer    = var.is_private
+  persistent_storage_uuid   = var.persistent_storage_uuid
 }

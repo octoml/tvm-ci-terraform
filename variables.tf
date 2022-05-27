@@ -83,3 +83,8 @@ variable "additional_agents" {
   }))
   default = {}
 }
+
+variable "persistent_storage_uuid" {
+  type        = string
+  description = "The UUID of the filesystem where persistent job data is stored"
+}

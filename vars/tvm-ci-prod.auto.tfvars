@@ -99,3 +99,4 @@ ecr_repositories = [
 domain_name               = "ci.tlcpack.ai"
 subject_alternative_names = ["docs.staging.tlcpack.ai"]
 ebs_vol_size              = 500
+persistent_storage_uuid   = "5c64e8dc-4feb-4fd1-8495-963941c4315a"
