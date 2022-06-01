@@ -29,7 +29,7 @@ jenkins:
       oldId: "803939ae-c6f8-4c7a-8386-0d1a9af631ad"
       privateIpUsed: true
       region: "us-west-2"
-      restrictUsage: false
+      restrictUsage: true
       scaleExecutorsByWeight: false
   
   %{~ endfor ~}
